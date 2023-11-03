@@ -5,30 +5,72 @@
     http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
              version="2.0">
 
-  <persistence-unit name="simple-persistence-unit" transaction-type="RESOURCE_LOCAL">
-    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    <persistence-unit name="db" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <class>domain.organizaciones.Miembro</class>
+        <class>domain.organizaciones.Area</class>
+        <class>domain.organizaciones.Organizacion</class>
+        <class>domain.organizaciones.Documento</class>
+        <class>domain.organizaciones.Trayecto</class>
+        <class>domain.organizaciones.Tramo</class>
+        <class>domain.organizaciones.Parada</class>
+        <class>domain.organizaciones.SolicitudDeVinculo</class>
+        <class>domain.organizaciones.SectorTerritorial</class>
+        <class>domain.transporte.MedioDeTransporte</class>
+        <class>domain.transporte.TransporteNoEmisor</class>
+        <class>domain.transporte.TransporteParticular</class>
+        <class>domain.transporte.TransportePublico</class>
+        <class>domain.transporte.TransporteServicioContratado</class>
+        <class>domain.transporte.Vehiculo</class>
+        <class>domain.mediciones.Medicion</class>
+        <class>domain.mediciones.Consumo</class>
+        <class>domain.mediciones.Periodicidad</class>
+        <class>domain.organizaciones.PuestoDeTrabajo</class>
+        <class>domain.sugerenciasYnotificaciones.Notificacion</class>
+        <class>domain.sugerenciasYnotificaciones.NotificacionTwilio</class>
+        <class>domain.sugerenciasYnotificaciones.NotificacionJavaMail</class>
+        <class>domain.services.distanciaAPI.DistanciaService</class>
+        <class>domain.mediciones.Reporte</class>
+        <class>domain.mediciones.ReporteOrganizacion</class>
+        <class>domain.mediciones.ReporteSectorTerritorial</class>
+        <class>domain.mediciones.DetalleReporte</class>
 
 
-    <properties>
-      <property name="hibernate.archive.autodetection" value="class"/>
 
-      <!-- <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
-      <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/prueba" />
-      <property name="hibernate.connection.username" value="root" />
-      <property name="hibernate.connection.password" value="mysql" /> -->
+        <properties>
+            <property name="hibernate.archive.autodetection" value="class"/>
 
-      <property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver"/>
-      <property name="hibernate.connection.url" value="jdbc:hsqldb:mem:app-db"/>
-      <property name="hibernate.connection.username" value="sa"/>
-      <property name="hibernate.connection.password" value=""/>
-      <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
+            <!-- <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/tpa" />
+             <property name="hibernate.connection.username" value="root" />
+             <property name="hibernate.connection.password" value="123456" />-->
 
-      <property name="hibernate.show_sql" value="true"/>
-      <property name="hibernate.format_sql" value="true"/>
-      <property name="use_sql_comments" value="true"/>
-      <property name="hibernate.hbm2ddl.auto" value="update"/>
-    </properties>
+            <property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver"/>
+            <property name="hibernate.connection.url" value="jdbc:hsqldb:mem:app-db"/>
+            <property name="hibernate.connection.username" value="sa"/>
+            <property name="hibernate.connection.password" value=""/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
 
-  </persistence-unit>
+            <property name="hibernate.show_sql" value="true" />
+            <!-- Enable the logging of all the generated SQL statements to the console -->
 
-</persistence> 
+            <property name="hibernate.format_sql" value="true" />
+            <!-- Format the generated SQL statement to make it more readable -->
+
+            <property name="use_sql_comments" value="true" />
+            <!-- Hibernate will put comments inside all generated SQL statements to hint what’s the generated SQL trying to do -->
+
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <!--
+                - validate: validate the schema, makes no changes to the database.
+                - update: update the schema.
+                - create: creates the schema, destroying previous data.
+                - create-drop: drop the schema when the SessionFactory is closed explicitly, typically when the application is stopped.
+                - none: does nothing with the schema, makes no changes to the database
+             -->
+        </properties>
+
+    </persistence-unit>
+
+</persistence>
