@@ -1,0 +1,61 @@
+{{# partial "titulo" }}
+    <title>CarbonOrg-Calculator | Registrar Trayecto</title>
+{{/partial}}
+
+{{# partial "contenido" }}
+    <section class="marcoCuerpo">
+        <section class="cuerpo">
+            <title>Guía de Recomendaciones</title>
+            <p>
+                Para reducir o compensar la huella de carbono, es necesario aplicar un conjunto de prácticas y dinámicas que aíslen o capturen el CO2
+                producido de la atmósfera. Te compartimos algunas de ellas:
+            </p>
+
+            <ul>
+                <li>Reducir el uso de energía en las oficinas:
+                    <ul>
+                        <li>Emplear bombillas de alta eficiencia energética.</li>
+                        <li>Contratar energía procedente de fuentes renovables.</li>
+                        <li>Cambiar los gases refrigerantes por otros con menor potencial de calentamiento global.</li>
+                        <li>Programar el apagado y desconexión automática de los equipos.</li>
+                    </ul>
+                </li>
+                <li>Buscar alternativas para el transporte:
+                    <ul>
+                        <li>Movilidad sostenible: Al no depender de combustibles fósiles, las bicicletas y los vehiculos electricos son una buena alternativa.</li>
+                        <li>Movilidad compartida: Al compartir vehiculos entre varias personas en lugar de conducir cada uno el suyo, se reduce el tráfico y la emisión de gases contaminantes.</li>
+                    </ul>
+                </li>
+                <li>Mas recomendaciones...
+
+                </li>
+                <li>Otra recomendacion</li>
+            </ul>
+
+        </section>
+    </section>
+{{/partial}}
+
+{{#if sesionNoIniciada}}
+    {{# partial "nav" }}
+        <nav class="navBar">
+            <a href="/home">Home</a>
+        </nav>
+    {{/partial}}
+
+    {{> layout.html.hbs }}
+{{/if}}
+
+{{#if layoutAgenteSectorial}}
+    {{> layout-agentes-sectoriales.html.hbs }}
+{{/if}}
+
+{{#if layoutOrganizacion}}
+    {{> layout-organizaciones.html.hbs }}
+{{/if}}
+
+{{#if layoutMiembro}}
+    {{> layout-miembros.html.hbs }}
+{{/if}}
+
+

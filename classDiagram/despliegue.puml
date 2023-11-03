@@ -1,0 +1,22 @@
+@startuml
+actor actor
+cloud internet
+node browser
+
+node "digital-ocean-app" {
+component "CarbonOrgCalculator"
+}
+
+node "digital-ocean-db" {
+database database
+}
+
+actor -> browser
+
+browser -> "http" internet
+
+
+internet -> "CarbonOrgCalculator"
+
+"CarbonOrgCalculator" -> database
+@enduml

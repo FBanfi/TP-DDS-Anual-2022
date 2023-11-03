@@ -1,0 +1,47 @@
+{{# partial "titulo" }}
+    <title>CarbonOrg-Calculator | Registrar Trayecto</title>
+{{/partial}}
+
+{{# partial "contenido" }}
+    <section class="marcoCuerpo">
+        <section class="cuerpo">
+            <title>Registrar Tramo</title>
+            <form method="POST" action="/trayectos/{{id_trayecto}}/tramos/nuevo">
+                <div>
+                    <H2>Origen:</H2>
+                    <div>
+                        <label for="calle_origen">Calle:</label>
+                        <input id="calle_origen" name="calle_origen" type="text" class="validate">
+                    </div>
+                    <div>
+                        <label for="altura_origen">Altura:</label>
+                        <input id="altura_origen" name="altura_origen" type="text" class="validate">
+                    </div>
+                </div>
+                <div>
+                    <H2>Destino:</H2>
+                    <div>
+                        <label for="calle_destino">Calle:</label>
+                        <input id="calle_destino" name="calle_destino" type="text" class="validate">
+                    </div>
+                    <div>
+                        <label for="altura_destino">Altura:</label>
+                        <input id="altura_destino" name="altura_destino" type="text" class="validate">
+                    </div>
+                </div>
+                <div class="input-field">
+                    <label for="medio_de_transporte">Medio de Transporte:</label>
+                    <select name="medio_de_transporte" id="medio_de_transporte" class="seleccion">
+                        <option value="" disabled selected>Elija una opción</option>
+                        {{#medios_transporte}}
+                            <option value="{{id}}">{{nombre}}</option>
+                        {{/medios_transporte}}
+                    </select>
+                </div>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+    </section>
+{{/partial}}
+
+{{> layout-miembros.html.hbs }}

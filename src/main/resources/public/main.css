@@ -1,0 +1,54 @@
+label {
+    width: 10rem;
+    text-align:justify;
+}
+
+body {
+    margin: 0;
+    font-family: Lato, sans-serif;
+    font-weight: 300;
+    background-color: #a8e8a6;
+}
+
+main {
+    width: 90%;
+    margin: auto;
+}
+
+h1 {
+    font-weight: 300;
+}
+
+h2 {
+    font-weight: 300;
+}
+
+
+footer {
+
+}
+
+section.fondo-verde {
+    background: #9fcb74;
+}
+
+footer.fondo-gris {
+    background: grey;
+    color: white;
+}
+
+.nueva-consultora .campo{
+    margin: 10px ;
+}
+
+.nueva-consultora .nombre-campo{
+    margin-right: 10px;
+}
+
+.login .campo{
+    margin: 10px ;
+}
+
+.login .nombre-campo{
+    margin-right: 10px;
+}

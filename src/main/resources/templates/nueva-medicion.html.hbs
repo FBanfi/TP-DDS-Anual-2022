@@ -1,0 +1,46 @@
+{{# partial "titulo" }}
+    <title>CarbonOrg-Calculator | Mediciones</title>
+{{/partial}}
+
+{{# partial "contenido" }}
+    <section class="marcoCuerpo">
+        <section class="cuerpo">
+            <title>Mediciones</title>
+            <form method="POST" action="/mediciones/nueva">
+                <p>Carga manual:</p>
+                <div class="input-field">
+                    <label for="tipo_medicion">Tipo:</label>
+                    <select name="tipo_medicion" id="tipo_medicion" class="seleccion">
+                        <option disabled selected>Elige una opción</option>
+                        {{#tiposConsumo}} <!--NAFTA, GASOIL, GAS_NATURAL--->
+                            <option>{{nombre}}</option>
+                        {{/tiposConsumo}}
+                    </select>
+                </div>
+                <div class="input-field">
+                    <label for="periodicidad">Periodicidad:</label>
+                    <!--<select name="tipo_periodicidad" id="tipo_periodicidad" class="seleccion">
+                        <option disabled selected>Elige una opción</option>
+                        {{#periodicidades}}
+                            <option>{{nombre}}</option>
+                        {{/periodicidades}}
+                    </select>--->
+                    <input placeholder="Ingrese MM/AAAA ó AAAA" name="tipo_periodicidad" id="tipo_periodicidad" type="text" class="validate">
+                </div>
+                <div class="input-field">
+                    <label for="valor">Valor:</label>
+                    <input placeholder="Ingrese el valor de la medicion" name="valor" id="valor" type="number" step="any" class="validate">
+                </div>
+                <input type="submit" value="Cargar">
+            </form>
+
+            <form method='POST' enctype='multipart/form-data' action="/mediciones/archivo">
+                <label for="arhivo">Subir archivo:</label>
+                <input id="archivo" type='file' name='uploaded_file' class="validate">
+                <button>Cargar</button>
+            </form>
+        </section>
+    </section>
+{{/partial}}
+
+{{> layout-organizaciones.html.hbs }}

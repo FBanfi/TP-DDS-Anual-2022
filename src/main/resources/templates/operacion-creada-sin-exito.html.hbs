@@ -1,0 +1,30 @@
+{{# partial "titulo" }}
+    <title>CarbonOrg-Calculator | Operacion</title>
+{{/partial}}
+
+{{# partial "nav" }}
+    <nav class="navBar">
+        <a href="/home">Home</a>
+        <a href="/reportes">Reportes</a>
+    </nav>
+{{/partial}}
+
+{{# partial "contenido" }}
+    <section class="marcoCuerpo">
+        <section class="cuerpo">
+            <h1>No se puede realizar esa operación con este tipo de cuenta</h1>
+        </section>
+    </section>
+{{/partial}}
+
+{{#if layoutAgenteSectorial}}
+    {{> layout-agentes-sectoriales.html.hbs }}
+{{/if}}
+
+{{#if layoutOrganizacion}}
+    {{> layout-organizaciones.html.hbs }}
+{{/if}}
+
+{{#if layoutMiembro}}
+    {{> layout-miembros.html.hbs }}
+{{/if}}

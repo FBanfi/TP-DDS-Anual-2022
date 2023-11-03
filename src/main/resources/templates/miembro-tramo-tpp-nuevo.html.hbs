@@ -1,0 +1,62 @@
+{{# partial "titulo" }}
+    <title>CarbonOrg-Calculator | Registrar Trayecto</title>
+{{/partial}}
+
+{{# partial "contenido" }}
+    <section class="marcoCuerpo">
+        <section class="cuerpo">
+            <title>Registrar Tramo Transporte Público</title>
+            <form>
+                <div class="input-field">
+                    <label for="transporte_publico">Transporte Público:</label>
+                    <select name="transporte_publico" id="transporte_publico" class="seleccion">
+                        <option value="{{idValorOpcionTransporte}}" selected>{{valorOpcionTransporte}}</option>
+                        {{#transportes_publicos}}
+                            <option value="{{idTransporte}}">{{nombre}}</option>
+                        {{/transportes_publicos}}
+                    </select>
+                    <input type="submit" value="Validar">
+                </div>
+            </form>
+            <form>
+                <div class="input-field">
+                    <label for="sentido">Sentido:</label>
+                    <select name="sentido" id="sentido" class="seleccion">
+                        <option value="{{idValorOpcionSentido}}" selected>{{valorOpcionSentido}}</option>
+                        {{#sentidos}}
+                            <option value="{{idSentido}}">{{nombre}}</option>
+                        {{/sentidos}}
+                    </select>
+                </div>
+                <input type="hidden" id="transporte_publico" name="transporte_publico" value="{{idValorOpcionTransporte}}">
+                <input type="submit" value="Validar">
+
+            </form>
+            <form method="POST" action="/trayectos/{{id_trayecto}}/tramos-transporte-publico/nuevo">
+                <div class="input-field">
+                    <label for="sentido">Origen:</label>
+                    <select name="origen" id="origen" class="seleccion">
+                        <option value="" disabled selected>Elija una opción</option>
+                        {{#origenes}}
+                            <option value="{{id}}">{{nombre}}</option>
+                        {{/origenes}}
+                    </select>
+                </div>
+                <div class="input-field">
+                    <label for="sentido">Destino:</label>
+                    <select name="destino" id="destino" class="seleccion">
+                        <option value="" disabled selected>Elija una opción</option>
+                        {{#destinos}}
+                            <option value="{{id}}">{{nombre}}</option>
+                        {{/destinos}}
+                    </select>
+                </div>
+                <input type="hidden" id="transporte_publico" name="transporte_publico" value="{{idValorOpcionTransporte}}">
+                <input type="hidden" id="sentido" name="sentido" value="{{idValorOpcionSentido}}">
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+    </section>
+{{/partial}}
+
+{{> layout-miembros.html.hbs }}

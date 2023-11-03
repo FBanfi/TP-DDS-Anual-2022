@@ -1,0 +1,33 @@
+{{# partial "titulo" }}
+    <title>CarbonOrg-Calculator | Mediciones</title>
+{{/partial}}
+
+{{# partial "contenido" }}
+    <section class="marcoCuerpo">
+        <section class="cuerpo">
+            <title>Mediciones</title>
+            <table class="content-table">
+                <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Periodicidad</th>
+                    <th>Factor Emision</th>
+                    <th>Valor</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#consumos}}
+                    <tr>
+                        <td>{{tipoConsumo}}</td>
+                        <td>{{periodicidad.periodoImputacion}}</td>
+                        <td>{{factorEmision.unidad}}</td>
+                        <td>{{valor}}</td>
+                    </tr>
+                {{/consumos}}
+                </tbody>
+            </table>
+        </section>
+    </section>
+{{/partial}}
+
+{{> layout-organizaciones.html.hbs }}

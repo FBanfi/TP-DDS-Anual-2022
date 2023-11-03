@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="/main.css">
+    <link rel="stylesheet" type="text/css" href="/estilo.css">
+    <link rel="stylesheet" type="text/css" href="/forms.css">
+    <link rel="stylesheet" type="text/css" href="/tablas.css">
+    <link rel="stylesheet" type="text/css" href="/botton.css">
+    <meta charset="UTF-8">
+    {{# block "titulo" }}
+    {{/block}}
+</head>
+
+<body class="sinMargen">
+<main>
+    <section class="banner">
+        <h1 class="titulo">CarbonOrg-Calculator</h1>
+    </section>
+    <nav>
+        {{#if sesionIniciada}}
+            <span>Iniciaste sesion como: {{nombreUsuario}} </span>
+            <a href="/logout">
+                <button type="button" class="BotonesSesion">Cerrar Sesión</button>
+            </a>
+        {{else}}
+            <a href="/login">
+                <button type="button" class="BotonesSesion">Iniciar Sesión</button>
+            </a>
+        {{/if}}
+    </nav>
+    {{# block "nav" }}
+    {{/block}}
+    {{# block "contenido" }}
+    {{/block}}
+</main>
+<footer>Copyright 2022 CarbonOrg-Calculator</footer>
+<!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript" src="js/materialize.min.js"></script>
+</body>
+</html>

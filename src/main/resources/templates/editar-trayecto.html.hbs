@@ -1,0 +1,44 @@
+{{# partial "titulo" }}
+    <title>CarbonOrg-Calculator | Registrar Trayecto</title>
+{{/partial}}
+
+{{# partial "contenido" }}
+
+    <H1>Tramos del trayecto: {{nombre_trayecto}}</H1>
+    <section class="marcoCuerpo">
+        <section class="cuerpo">
+            <a class="css-button-rounded--grey" href="/trayectos/{{id_trayecto}}/tramos/nuevo">Agregar Tramo</a>
+            <a class="css-button-rounded--grey" href="/trayectos/{{id_trayecto}}/tramos-transporte-publico/nuevo">Agregar Tramo Transporte Público</a>
+            <!--<input type="button" class="css-button-rounded--grey" value="Agregar Tramo">
+            <input type="button" class="css-button-rounded--grey" value="Agregar Tramo Transporte Público">-->
+            <table class="content-table">
+                <thead>
+                <tr>
+                    <th>Medio de Transporte</th>
+                    <th>Origen</th>
+                    <th>Destino</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                    {{#tramos}}
+                        <tr>
+                        <td>{{nombreMedioTransporte}}</td>
+                        <td>{{direccionOrigen}}</td>
+                        <td>{{direccionDestino}}</td>
+
+                        <td>
+                            <form method="post" action="/trayectos/{{id_trayecto}}/tramos/{{id}}/eliminacion">
+                                <input class="css-button-rounded--red" type="submit" value="Eliminar">
+                            </form>
+                        </td>
+                        </tr>
+                    {{/tramos}}
+                </tbody>
+            </table>
+        </section>
+    </section>
+
+{{/partial}}
+
+{{> layout-miembros.html.hbs }}

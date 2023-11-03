@@ -1,0 +1,90 @@
+    @startuml
+
+    class SectorTerritorial {
+        organizaciones
+        obtenerHCTotal()
+    }
+    SectorTerritorial -> "+" Organizacion
+    class Recomendador {
+        guiaRecomendacion
+        recomendar()
+    }
+    Recomendador .> Organizacion
+    class Organizacion {
+        areas
+        subscriptoresARecomendaciones
+
+        getTrayectosCompartidos()
+        getTrayectosNoCompartidos()
+        obtenerHC()
+        obtenerImpactoMiembro(Miembro)
+
+        recibirRecomendacion(guiaRecomendacion)
+
+    }
+    Organizacion .> "1..*" Trayecto
+    Organizacion -> "1..*" Area
+    Organizacion -down..> Miembro
+
+    class Area {
+        miembros
+        getMiembros()
+        getTrayectosMiembros()
+
+        cantidadMiembros()
+        promedioDeHC()
+    }
+    Area -> "1..*" Miembro
+    class Miembro {
+        servicioMail
+        whatsappService
+        mail
+        telefono
+        trayectos
+
+        obtenerHC()
+
+        recibirRecomendacion(guiaRecomendacion)
+    }
+    Miembro -> "1..*" Trayecto
+    Miembro -> MailService
+    Miembro -> WhatsappService
+
+    class Trayecto {
+        tramos
+        obtenerHC()
+    }
+    Trayecto --> "1..*" Tramo
+
+    class Tramo {
+        medioDeTransporte
+        distanciaService
+        getDistancia()
+        obtenerDA()
+        obtenerHC()
+    }
+    Tramo --> MedioDeTransporte
+    Tramo ..> Consumo
+    Tramo --> DistanciaService
+
+    abstract MedioDeTransporte {
+        getConsumo()
+    }
+    MedioDeTransporte .> Consumo
+    class Consumo {
+        valor
+    }
+    interface DistanciaService {
+        obtenerDistancia()
+    }
+
+    class RepositorioFactoresEmision {
+        factoresEmision
+    }
+    RepositorioFactoresEmision --> FactorEmision
+    class FactorEmision {
+        valor
+        unidad
+        setValor()
+    }
+    @enduml

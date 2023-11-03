@@ -1,0 +1,30 @@
+{{# partial "titulo" }}
+    <title>CarbonOrg-Calculator | Calculadora</title>
+{{/partial}}
+
+{{# partial "contenido" }}
+    <section class="marcoCuerpo">
+        <section class="cuerpo">
+            <title>Calculadora</title>
+            <form action="/calculadora/miembro" method="GET">
+                <div class="input-field">
+                    <label for="miembro">Miembro:</label>
+                    <input value="{{nombreMiembro}}" name="tipo_calculo" id="tipo_calculo" type="text"
+                           class="validate" disabled>
+                </div>
+                <div class="input-field">
+                    <label for="seleccion">Organización:</label>
+                    <input value="{{nombreOrganizacion}}" name="seleccion" id="seleccion"
+                           type="text" class="validate" disabled>
+                </div>
+                <div class="input-field">
+                    <label for="hc">HC:</label>
+                    <input id="hc" name="hc" value="{{valorHC}}" type="text" class="validate" disabled>
+                </div>
+                <input value="Volver a Calcular" type="submit">
+            </form>
+        </section>
+    </section>
+{{/partial}}
+
+{{>layout-miembros.html.hbs}}

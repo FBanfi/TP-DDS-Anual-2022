@@ -1,0 +1,27 @@
+{{#partial "titulo"}}
+    <title>CarbonOrg-Calculator | Login</title>
+{{/partial}}
+
+{{#partial "contenido"}}
+    <section class="marcoCuerpo">
+        <section class="cuerpo">
+            <h1>Inicio de sesion</h1>
+            <form action="/login?origin={{origin}}" method="post">
+                <div class="campo">
+                    <label>Usuario:</label>
+                    <input placeholder="Ingrese usuario" type="text" name="user">
+                </div>
+                <div class="campo">
+                    <label>Contrasenia:</label>
+                    <input placeholder="Ingrese contrasenia" type="password" name="pass">
+                </div>
+                <input type="submit" value="Iniciar sesion">
+                <div>
+                    <p>No tenes cuenta? <a href="/singin">Registrate</a></p>
+                </div>
+            </form>
+        </section>
+    </section>
+{{/partial}}
+
+{{> layout-login.html.hbs}}

@@ -1,0 +1,43 @@
+{{#partial "singin"}}
+    <div class="campo">
+        <label>Nombre:</label>
+        <input type="text" name="nombre">
+    </div>
+    <div class="campo">
+        <label>Razón social:</label>
+        <select name="razon-social" id="razon-social" class="seleccion">
+            <option value="" disabled selected>Elija una opción</option>
+            {{#razones_sociales}}
+                <option>{{enumTipo}}</option>
+            {{/razones_sociales}}
+        </select>
+    </div>
+    <div class="campo">
+        <label>Tipo organización:</label>
+        <select name="tipo-organizacion" id="tipo-organizacion" class="seleccion">
+            <option value="" disabled selected>Elija una opción</option>
+            {{#tipos_organizacion}}
+                <option>{{enumTipo}}</option>
+            {{/tipos_organizacion}}
+        </select>
+    </div>
+    <div class="campo">
+        <label>Clasificación organización:</label>
+        <select name="clasifiacion-organizacion" id="clasifiacion-organizacion" class="seleccion">
+            <option value="" disabled selected>Elija una opción</option>
+            {{#clasifiaciones_organizaciones}}
+                <option>{{enumTipo}}</option>
+            {{/clasifiaciones_organizaciones}}
+        </select>
+    </div>
+    <div class="campo">
+        <label>Calle:</label>
+        <input type="text" name="calle">
+    </div>
+    <div class="campo">
+        <label>Altura:</label>
+        <input type="number" name="altura">
+    </div>
+{{/partial}}
+
+{{> singin-tipo-cuenta.html.hbs}}

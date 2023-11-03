@@ -1,0 +1,19 @@
+{{#partial "titulo"}}
+    <title>CarbonOrg-Calculator | Singin</title>
+{{/partial}}
+
+{{#partial "contenido"}}
+    <section class="marcoCuerpo">
+        <section class="cuerpo">
+            <h1>Registrar nueva cuenta</h1>
+            <form action="/singin/{{tipo_cuenta}}" method="post">
+                {{> partial-singin-usuario.html.hbs}}
+                {{# block "singin" }}
+                {{/block}}
+                <input type="submit" value="Crear cuenta">
+            </form>
+        </section>
+    </section>
+{{/partial}}
+
+{{> layout-login.html.hbs}}

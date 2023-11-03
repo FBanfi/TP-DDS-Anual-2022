@@ -1,0 +1,41 @@
+{{# partial "titulo" }}
+    <title>CarbonOrg-Calculator | Calculadora</title>
+{{/partial}}
+
+{{# partial "nav" }}
+    <nav class="navBar">
+        <a href="/home">Home</a>
+        <a class="active" href="/calculadora">Calculadora</a>
+        <a href="/mediciones">Mediciones</a>
+        <a href="/recomendaciones">Recomendaciones</a>
+        <a href="/reportes">Reportes</a>
+        <a href="/vinculaciones">Vinculaciones</a>
+    </nav>
+{{/partial}}
+
+{{# partial "contenido" }}
+    <section class="marcoCuerpo">
+        <section class="cuerpo">
+            <title>Calculadora</title>
+            <form action="/calculadora/organizaciones" method="GET">
+                <div class="input-field">
+                    <label for="nombre_sector">Nombre Sector:</label>
+                    <input value="{{nombreSector}}" name="nombre_sector" id="nombre_sector"
+                           type="text" class="validate">
+                </div>
+                <div class="input-field">
+                    <label for="org">Organizacion:</label>
+                    <input value="{{org}}" name="org" id="org"
+                           type="text" class="validate">
+                </div>
+                <div class="input-field">
+                    <label for="hc">HC:</label>
+                    <input id="hc" name="hc" value="{{valorHC}}" type="text" class="validate" disabled>
+                </div>
+                <input value="Volver a Calcular" type="submit">
+            </form>
+        </section>
+    </section>
+{{/partial}}
+
+{{> layout-agentes-sectoriales.html.hbs }}

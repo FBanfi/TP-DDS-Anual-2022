@@ -1,0 +1,65 @@
+{{#partial "titulo"}}
+    <title>CarbonOrg-Calculator | Menu Reportes</title>
+{{/partial}}
+
+{{#partial "contenido"}}
+    <section class="marcoCuerpo">
+        <section class="cuerpo">
+            <h1>Seleccione un tipo de reporte:</h1>
+            <table style="margin-inline: auto" class="content-table">
+                <thead>
+                <tr>
+                    <th>Tipo de Reporte</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>HC Total por sector territorial</td>
+                        <td><a class="css-button-rounded--grey" style="height: 20px; min-width: 85px" href="/reportes/accion/consulta?tipo=HCTotalSectorTerritorial">CONSULTAR</a></td>
+                        <td><a class="css-button-rounded--grey" style="height: 20px; min-width: 85px" href="/reportes/accion/generacion?tipo=HCTotalSectorTerritorial">GENERAR</a></td>
+                    </tr>
+                    <tr>
+                        <td>HC Total por tipo de organizacion</td>
+                        <td><a class="css-button-rounded--grey" style="height: 20px; min-width: 85px" href="/reportes/accion/consulta?tipo=HCTotalOrganizacion"> CONSULTAR</a></td>
+                        <td><a class="css-button-rounded--grey" style="height: 20px; min-width: 85px" href="/reportes/accion/generacion?tipo=HCTotalOrganizacion"> GENERAR</a></td>
+                    </tr>
+                    <tr>
+                        <td>Composicion de HC total por sector territorial</td>
+                        <td><a class="css-button-rounded--grey" style="height: 20px; min-width: 85px" href="/reportes/accion/consulta?tipo=CompHCTotalSectorTerritorial"> CONSULTAR</a></td>
+                        <td><a class="css-button-rounded--grey" style="height: 20px; min-width: 85px" href="/reportes/accion/generacion?tipo=CompHCTotalSectorTerritorial"> GENERAR </a></td>
+                    </tr>
+                    <tr>
+                        <td>Composicion de HC total de organizacion</td>
+                        <td><a class="css-button-rounded--grey" style="height: 20px; min-width: 85px" href="/reportes/accion/consulta?tipo=CompHCTotalOrganizacion">CONSULTAR</a></td>
+                        <td><a class="css-button-rounded--grey" style="height: 20px; min-width: 85px" href="/reportes/accion/generacion?tipo=CompHCTotalOrganizacion">GENERAR</a></td>
+                    </tr>
+                    <tr>
+                        <td>Evolucion de HC total de sector territorial</td>
+                        <td><a class="css-button-rounded--grey" style="height: 20px; min-width: 85px" href="/reportes/accion/consulta?tipo=EvolHCTotalSectorTerritorial">CONSULTAR</a></td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Eolucion de HC total de organizacion</td>
+                        <td><a class="css-button-rounded--grey" style="height: 20px; min-width: 85px" href="/reportes/accion/consulta?tipo=EvolHCTotalOrganizacion">CONSULTAR</a></td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </section>
+
+{{/partial}}
+
+{{#if layoutAgenteSectorial}}
+    {{> layout-agentes-sectoriales.html.hbs }}
+{{/if}}
+
+{{#if layoutOrganizacion}}
+    {{> layout-organizaciones.html.hbs }}
+{{/if}}
+
+{{#if layoutMiembro}}
+    {{> layout-miembros.html.hbs }}
+{{/if}}

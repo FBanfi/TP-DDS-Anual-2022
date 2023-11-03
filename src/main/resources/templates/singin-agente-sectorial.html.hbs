@@ -1,0 +1,17 @@
+{{#partial "singin"}}
+    <div class="campo">
+        <label>Nombre Sector Territorial:</label>
+        <input type="text" name="nombre">
+    </div>
+    <div class="campo">
+        <label>Tipo Sector:</label>
+        <select name="tipo-sector" id="tipo-sector" class="seleccion">
+            <option value="" disabled selected>Elija una opción</option>
+            {{#tipos_sectores}}
+                <option>{{enumTipo}}</option>
+            {{/tipos_sectores}}
+        </select>
+    </div>
+{{/partial}}
+
+{{> singin-tipo-cuenta.html.hbs}}

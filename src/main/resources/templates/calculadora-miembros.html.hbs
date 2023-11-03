@@ -1,0 +1,29 @@
+{{# partial "titulo" }}
+    <title>CarbonOrg-Calculator | Calculadora</title>
+{{/partial}}
+
+{{# partial "contenido" }}
+    <section class="marcoCuerpo">
+        <section class="cuerpo">
+            <title>Calculadora</title>
+            <form class="formulario" method="post">
+                <div class="input-field">
+                    <label for="organizacion"><p>Selecciona una organizacion a</p><p>la que perteneces:</p></label>
+                    <select name="organizacion" id="organizacion" class="seleccion">
+                        <option value="{{org}}" selected>{{nombreOrg}}</option>
+                        {{#organizaciones}}
+                            <option value="{{id}}" >{{nombre}}</option>
+                        {{/organizaciones}}
+                    </select>
+                    <input hidden name="miembro" id="miembro" value="{{miembro.id}}">
+                </div>
+                <input type="submit" value="Calcular">
+            </form>
+            <br>
+            </form>
+
+        </section>
+    </section>
+{{/partial}}
+
+{{> layout-miembros.html.hbs }}

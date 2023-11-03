@@ -1,0 +1,41 @@
+{{# partial "titulo" }}
+    <title>CarbonOrg-Calculator | Vinculaciones</title>
+{{/partial}}
+
+{{# partial "contenido" }}
+    <br class="marcoCuerpo">
+    <section class="cuerpo">
+        <title>Aceptar Vinculaciones</title>
+        <table class="content-table">
+            <thead>
+            <tr>
+                <th>Solicitudes de Vinculo</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {{#solicitudesPendientes}}
+                <tr>
+                    <td>{{nombreMiembro}}</td>
+                    <td>{{area}}</td>
+                    <td>
+                        <form method="get" action="/vinculaciones/{{id}}/aceptacion">
+                            <input class="css-button-rounded--blue" type="submit" value="✓">
+                        </form>
+                    </td>
+                    <td>
+                        <form method="post" action="/vinculaciones/{{id}}/eliminacion">
+                            <input class="css-button-rounded--red" type="submit" value="✗">
+                        </form>
+                    </td>
+                </tr>
+            {{/solicitudesPendientes}}
+            </tbody>
+        </table>
+    </section>
+{{/partial}}
+
+{{> layout-organizaciones.html.hbs }}

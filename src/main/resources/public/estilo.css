@@ -1,0 +1,56 @@
+
+.sinMargen{
+    margin: 0;
+}
+.banner{
+    background:#a9eaa8;
+}
+
+.navBar{
+    background-color: #bed2a5;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navBar a{
+    float: left;
+    color:black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navBar a:hover{
+    background-color: #dddd;
+    color: black;
+}
+
+.navBar a.active{
+    background-color: #04aa6d;
+    color: white;
+}
+
+.marcoCuerpo{
+    background:#8eb666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cuerpo{
+    background:#a0cb76;
+    margin: 20px;
+    padding: 20px;
+    height: 70vh;
+}
+
+.titulo{
+    text-align: center;
+    font-size: 50px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 10px 0;
+}

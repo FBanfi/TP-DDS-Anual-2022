@@ -1,0 +1,63 @@
+{{#partial "titulo"}}
+    <title>CarbonOrg-Calculator | Menu Reportes</title>
+{{/partial}}
+
+{{#partial "contenido"}}
+    <br class="marcoCuerpo">
+    <section class="cuerpo">
+        <h1>Consulta Evolucion: {{NombreReporte}}</h1>
+        <form>
+            <div>
+                <label for="valor">{{TipoEvolucion}}:</label>
+                <select name="valor" id="valor" class="seleccion">
+                    <option value="{{idValorOpcion}}" selected>{{ValorOpcion}}</option>
+                    {{#evoluciones}}
+                        <option value="{{id}}">{{nombre}}</option>
+                    {{/evoluciones}}
+                </select>
+            </div>
+            <div>
+                <label>Desde:</label>
+                <input type="text" name="desde" placeholder="Ingrese una fecha con formato yyyy-mm-dd">
+            </div>
+            <div>
+                <label>Hasta:</label>
+                <input type="text" name="hasta" placeholder="Ingrese una fecha con formato yyyy-mm-dd">
+            </div>
+            <input type="hidden" value="{{tipo}}" name="tipo">
+            <input type="submit" value="Filtrar">
+        </form>
+        <table style="margin-inline: auto" class="content-table">
+            <thead>
+            <tr>
+                <th>{{TipoEvolucion}}</th>
+                <th>Fecha</th>
+                <th>HC</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {{#reportes}}
+                <tr>
+                    <td>{{nombreTipoReporte}}</td>
+                    <td>{{fecha}}</td>
+                    <td>{{hc}}</td>
+                </tr>
+            {{/reportes}}
+            </tbody>
+        </table>
+    </section>
+{{/partial}}
+
+
+{{#if layoutAgenteSectorial}}
+    {{> layout-agentes-sectoriales.html.hbs }}
+{{/if}}
+
+{{#if layoutOrganizacion}}
+    {{> layout-organizaciones.html.hbs }}
+{{/if}}
+
+{{#if layoutMiembro}}
+    {{> layout-miembros.html.hbs }}
+{{/if}}

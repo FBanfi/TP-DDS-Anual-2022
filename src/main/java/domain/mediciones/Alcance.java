@@ -1,0 +1,7 @@
+package domain.mediciones;
+
+public enum Alcance {
+  EMISIONES_DIRECTAS,
+  EMISION_INDICRECTAS_ELECTRICIDAD,
+  EMISION_INDIRECTAS_NO_CONTROLADAS,
+}

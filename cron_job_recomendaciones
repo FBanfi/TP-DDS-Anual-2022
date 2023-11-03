@@ -1,0 +1,2 @@
+0,5,10,15,20,25,30,35,40,45,50,55 * * * * $HOME/cron-routes.sh
+0 12 * * * java -jar $HOME/2022-tpa-vi-no-grupo-09/target/ejercicio-1.0-SNAPSHOT-recomendador.jar "http://146.190.45.230/recomendaciones"

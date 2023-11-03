@@ -1,0 +1,32 @@
+{{# partial "titulo" }}
+    <title>CarbonOrg-Calculator | Registrar Trayecto</title>
+{{/partial}}
+
+{{# partial "contenido" }}
+    <section class="marcoCuerpo">
+        <section class="cuerpo">
+            <title>Registrar Parada</title>
+            <form method="POST" action="/trayectos/paradas/nueva">
+                <div>
+                    <label for="transporte">Medio de transporte:</label>
+                    <input id="transporte" type="text" class="validate">
+                </div>
+                <div>
+                    <label for="nombre">Nombre:</label>
+                    <input id="nombre" type="text" class="validate">
+                </div>
+                <div>
+                    <label for="origen">Origen:</label>
+                    <input id="origen" type="text" class="validate">
+                </div>
+                <div>
+                    <label for="destino">Destino:</label>
+                    <input id="destino" type="text" class="validate">
+                </div>
+                <input type="button" value="Cargar">
+            </form>
+        </section>
+    </section>
+{{/partial}}
+
+{{> layout-miembros.html.hbs }}

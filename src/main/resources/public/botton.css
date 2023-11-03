@@ -1,0 +1,59 @@
+.css-button-rounded--grey {
+    text-decoration: none;
+    min-width: 130px;
+    height: 20px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
+    border: 2px solid #495057;
+    background: #495057;
+    text-decoration: none;
+}
+.css-button-rounded--grey:hover {
+    text-decoration: none;
+    background: #ffffff;
+    color: #495057
+}
+
+.css-button-rounded--red {
+    min-width: 90px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
+    border: 2px solid #d90429;
+    background: #d90429;
+}
+
+
+.css-button-rounded--blue {
+    min-width: 90px;
+    height: 40px;
+    color: #000000;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
+    border: 2px solid#0e84cd;
+    background: #0c8fe1;
+}
+.css-button-rounded--red:hover {
+    background: #fff;
+    color: #d90429
+}

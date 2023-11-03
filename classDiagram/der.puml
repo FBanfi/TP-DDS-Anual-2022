@@ -1,0 +1,187 @@
+@startuml
+' hide the spot
+hide circle
+
+' avoid problems with angled crows feet
+skinparam linetype ortho
+entity sectores_territoriales {
+    id <<generated>>
+    --
+    tipo_sector : text
+}
+
+entity organizaciones {
+  id : number <<generated>>
+  --
+  id_sector_territorial : number <<FK>>
+  nombre : text
+  razon_social : text
+  areas : text
+  tipo : text
+  mediciones : text
+  solicitud_vinculo : text
+  suscriptores_recomendaciones : text
+  ubicacion_calle
+  ubicacion_local
+  ubicacion_altura
+  clasificacion : text
+}
+organizaciones }|.|| sectores_territoriales
+entity areas {
+  id : number <<generated>>
+  --
+  id_organizacion : number <<FK>>
+  nombre : text
+}
+
+entity miembros {
+  id : number <<generated>>
+  --
+  id_area : number <<FK>>
+  nombre_completo : text
+  documento_tipo : text
+  documento : text
+  num_telefono : text
+  puesto_de_trabajo : text
+}
+
+
+organizaciones ||..|{ miembros
+
+entity trayectos {
+  id : number <<generated>>
+  --
+}
+entity trayectosXtramos {
+  id : number <<generated>>
+  --
+}
+entity miembroXtrayecto {
+  id : number <<generated>>
+  --
+}
+
+entity tramos {
+  id : number <<generated>>
+  --
+  id_medio_transporte <<FK>>
+}
+
+trayectos }|..|| trayectosXtramos
+trayectosXtramos }|..|| tramos
+
+entity medicion {
+  id : number <<generated>>
+  --
+  id_organizacion : number <<FK>>
+  id_consumo : number <<FK>>
+}
+
+entity solicitud_vinculo {
+  id : number <<generated>>
+  --
+  id_organizacion : number <<FK>>
+  id_miembro : number<<FK>>
+  id_area : number<<FK>>
+}
+solicitud_vinculo }|..|| miembros
+solicitud_vinculo }|..|| areas
+entity puestos_de_trabajo {
+  id : number <<generated>>
+  --
+  id_organizacion : number <<FK>>
+  id_area: number <<FK>>
+}
+
+entity notificaciones {
+  id : number <<generated>>
+  --
+  tipo : text
+  id_servicio_mail : number <<FK>>
+  mail_destino : text
+  asunto : text
+  id_servicio_mensajeria : number <<FK>>
+  numero : text
+}
+
+entity mail_service {
+    id : number <<generated>>
+    --
+    tipo
+}
+
+entity mensajeria_service {
+    id : number <<generated>>
+    --
+    tipo
+}
+notificaciones }|..|| mail_service
+notificaciones }|..|| mensajeria_service
+entity medios_de_transporte {
+    id : number <<generated>>
+    --
+    id_vehiculo <<FK>>
+    tipo : text
+}
+tramos }|.|| medios_de_transporte
+
+entity paradas {
+  id : number <<generated>>
+  --
+  id_vehiculos
+  id_parada_destino : number
+  nombre : text
+  origen : text
+}
+
+entity medio_de_transporteXparada {
+    id_tramo_ida : number  <<FK>>
+    id_tramo_vuelta : number  <<FK>>
+    id_parada : number  <<FK>>
+}
+
+entity vehiculos {
+  id : number <<generated>>
+  --
+  tipo_vehiculo : text
+  consumo : text
+}
+medios_de_transporte ||.|| vehiculos
+entity consumo {
+    id_consumo  : number <<generated>>
+    --
+    periodicidad_periodoImputacion : text
+    periodicidad_tipo : text
+    factor_emision_unidad : text
+    factor_emision_valor  : number
+}
+
+entity tipos_consumo {
+    id  : number <<generated>>
+    --
+    nombre : text
+    unidad : text
+    activida : text
+    alacance : text
+}
+consumo }|..|| tipos_consumo
+organizaciones ||..|{ areas
+organizaciones ||..|{ medicion
+organizaciones ||..|{ solicitud_vinculo
+
+medicion ||..|| consumo
+areas ||..|{ miembros
+miembros ||..|{ miembroXtrayecto
+miembroXtrayecto }|..|| trayectos
+miembros ||..|{ miembroXnotificacion
+miembroXnotificacion }|..|| notificaciones
+
+miembros ||..|{ miembroXpuesto_de_trabajo
+miembroXpuesto_de_trabajo }|..|| puestos_de_trabajo
+
+medios_de_transporte ||..|{ medio_de_transporteXparada
+medios_de_transporte ||..|{ medio_de_transporteXparada
+medio_de_transporteXparada }|..|| paradas
+
+paradas ||.|| paradas
+@enduml

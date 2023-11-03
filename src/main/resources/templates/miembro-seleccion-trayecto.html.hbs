@@ -1,0 +1,41 @@
+{{# partial "titulo" }}
+    <title>CarbonOrg-Calculator | Registrar Trayecto</title>
+{{/partial}}
+
+{{# partial "contenido" }}
+    <section class="marcoCuerpo">
+        <section class="cuerpo">
+            <title>Seleccionar Trayecto</title>
+            <br>
+            <table class="content-table">
+                <thead>
+                <tr>
+                    <th>Trayecto</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {{#trayectos}}
+                    <tr>
+                        <td>{{nombre}}</td>
+                        <td>
+                            <form method="get" action="/trayectos/edicion/{{id}}">
+                                <input class="css-button-rounded--blue" type="submit" value="Editar">
+                            </form>
+                        </td>
+                        <td>
+                            <form method="post" action="/trayectos/eliminacion/{{id}}">
+                                <input class="css-button-rounded--red" type="submit" value="Eliminar">
+                            </form>
+                        </td>
+                    </tr>
+                {{/trayectos}}
+                </tbody>
+            </table>
+        </section>
+    </section>
+{{/partial}}
+
+{{> layout-miembros.html.hbs }}

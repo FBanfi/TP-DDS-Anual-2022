@@ -1,0 +1,200 @@
+@startuml
+
+class Organizacion{
+  List<Medicion> mediciones
+
+  cargarMedicion()
+  getTrayectosOrganizacion()
+  getTrayectosCompartidos()
+  tieneTrayectosCompartidos()
+}
+
+class Area {
+  String nombre;
+  List<Miembro> miembros;
+
+  getTrayectosMiembros()
+}
+
+class Ubicacion{
+    String calle
+    int local
+    int altura
+}
+
+
+class Miembro{
+    List<Trayecto> trayectos
+
+    compartirTrayectoCon(Trayecto trayecto, Miembro miembro)
+    agregarTrayecto(Trayecto trayecto)
+    getTrayectoConSerContrOParticu()
+
+}
+
+
+class Trayecto{
+    List<Tramo> tramos
+    List<Miembro> miembrosQueCompartenTrayecto
+
+    añadirMiembroALista(Miembro miembro)
+    getDistanciaTotal()
+    tieneTodosSusTramoSonConServContrOPart()
+}
+
+class Tramo{
+  MedioDeTransporte medioTransporte
+  Ubicacion destino
+  Ubicacion origen
+  ServicioDistancia servicioDistancia
+
+  getDistancia()
+  esParticularOContratado()
+
+}
+
+class Parada {
+  String nombre
+  Ubicacion origen
+  Parada destino
+  ServicioDistancia servicioDistancia
+
+  getDistancia()
+}
+
+class RepositorioParadas {
+  List<Parada> paradas
+
+  agregarParada()
+  getParadas()
+}
+
+
+class MedioDeTransporte {
+    Vehiculo vehiculo;
+
+    obtenerEmision()
+}
+
+class TransportePublico extends MedioDeTransporte {
+    List<Parada> tramoIda
+    List<Parada> tramoVuelta
+
+    obtenerEmision()
+
+
+}
+
+class FactorEmision{
+  Unidad unidad
+}
+
+class Consumo {
+    double valor;
+    TipoConsumo tipoConsumo;
+    Periodicidad periodicidad;
+    FactorEmision factorEmision
+}
+
+class Medicion{
+    TipoConsumo tipoConsumo;
+    Consumo consumo;
+
+    getPeriodoImputacion()
+}
+
+class Periodicidad {
+    TipoPeriodicidad tipo
+    LocalDate valor
+}
+enum TipoPeriodicidad {
+    MENSUAL("MM/AAAA")
+    ANUAL("AAAA")
+}
+
+enum Unidad {
+  M3
+  LT
+  KG
+  LTS
+  KWH
+  KM
+  SIN_UNIDAD
+}
+
+enum TipoConsumo {
+  GAS_NATURAL
+  DIESEL
+  GASOIL
+  NAFTA
+  CARBON
+  COMBUSTIBLE_CONSUMIDO_GASOIL
+  COMBUSTIBLE_CONSUMIDO_NAFTA
+  ELECTRICIDAD
+  MEDIO_TRANSPORTE_CAMION
+  MEDIO_TRANSPORTE_UTILITARIO_LIVIANO
+  DISTANCIA_MEDIA_RECORRIDA
+
+}
+class DatoActividadParserCSV {
+    Periodicidad periodicidad;
+    List<Consumo> consumos;
+
+    parsearCSV(path)
+    getMapConConsumos()
+    obtenerPeriodicidadValidada(csvRecord)
+    getConsumos()
+}
+
+class ServicioDistancia {
+      String urlApi
+      Retrofit retrofit
+      String token
+
+      Distancia obtenerDistancia()
+}
+
+
+Consumo --> FactorEmision
+Consumo --> Periodicidad
+Periodicidad --> TipoPeriodicidad
+
+Medicion --> Consumo
+Medicion --> TipoConsumo
+FactorEmision --> Unidad
+TipoConsumo --> Unidad
+DatoActividadParserCSV --> "*" Consumo
+DatoActividadParserCSV --> Periodicidad
+
+
+
+Organizacion --> Ubicacion
+Organizacion <- Miembro
+Organizacion -->"*" Area
+Organizacion -->"*" Medicion
+
+
+Area -->"*" Miembro
+
+Miembro --UP> Area
+
+Tramo --> ServicioDistancia
+Parada --> ServicioDistancia
+TransportePublico -->"*" Parada
+Tramo -> MedioDeTransporte
+Tramo --UP>"2" Ubicacion
+Trayecto -->"*" Tramo
+Trayecto -->"*" Miembro
+
+RepositorioParadas -->"*" Parada
+
+
+
+Miembro -->"*" Trayecto
+
+
+
+
+
+
+@enduml

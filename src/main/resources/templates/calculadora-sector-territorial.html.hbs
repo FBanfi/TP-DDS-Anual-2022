@@ -1,0 +1,46 @@
+{{# partial "titulo" }}
+    <title>CarbonOrg-Calculator | Calculadora</title>
+{{/partial}}
+
+{{# partial "nav" }}
+    <nav class="navBar">
+        <a href="/home">Home</a>
+        <a class="active" href="/calculadora">Calculadora</a>
+        <a href="/mediciones">Mediciones</a>
+        <a href="/recomendaciones">Recomendaciones</a>
+        <a href="/reportes">Reportes</a>
+        <a href="/vinculaciones">Vinculaciones</a>
+    </nav>
+{{/partial}}
+
+{{# partial "contenido" }}
+    <section class="marcoCuerpo">
+        <section class="cuerpo">
+            <title>Calculadora</title>
+            <form class="formulario">
+                <label for="nombre_sector">Nombre Sector:</label>
+                <input placeholder="Ingrese el nombre de sector" value="{{nombreSector}}" name="nombre_sector" id="nombre_sector"
+                       type="text" class="validate">
+
+                <input type="submit" value="Validar seleccion">
+            </form>
+            <br>
+            <form method="POST" action="/calculadora/sector-territorial" class="formulario">
+                <div class="input-field">
+                    <label for="org">Organizaciones:</label>
+                    <select name="org" id="org" class="seleccion">
+                        <option value="" disabled selected>Elija una opción</option>
+                        {{#organizaciones}}
+                            <option value="{{id}}">{{nombre}}</option>
+                        {{/organizaciones}}
+                    </select>
+                </div>
+                <input type="hidden" value="{{nombreSector}}" name="nombreSector">
+                <input type="hidden" id="org" value="{{id}}" name="org">
+                <input type="submit" value="Calcular">
+            </form>
+        </section>
+    </section>
+{{/partial}}
+
+{{> layout-agentes-sectoriales.html.hbs }}

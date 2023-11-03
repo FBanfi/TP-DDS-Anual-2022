@@ -1,0 +1,36 @@
+{{# partial "titulo" }}
+    <title>CarbonOrg-Calculator</title>
+{{/partial}}
+
+{{# partial "contenido" }}
+    <section class="marcoCuerpo">
+        <section class="cuerpo">
+            <h1>{{tipoMensaje}}</h1>
+            <p>{{mensaje}}</p>
+        </section>
+    </section>
+{{/partial}}
+
+{{#if sesionNoIniciada}}
+    {{# partial "nav" }}
+        <nav class="navBar">
+            <a href="/home">Home</a>
+        </nav>
+    {{/partial}}
+
+    {{> layout.html.hbs }}
+{{/if}}
+
+{{#if layoutAgenteSectorial}}
+    {{> layout-agentes-sectoriales.html.hbs }}
+{{/if}}
+
+{{#if layoutOrganizacion}}
+    {{> layout-organizaciones.html.hbs }}
+{{/if}}
+
+{{#if layoutMiembro}}
+    {{> layout-miembros.html.hbs }}
+{{/if}}
+
+

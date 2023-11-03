@@ -1,0 +1,29 @@
+{{#partial "singin"}}
+    <div class="campo">
+        <label>Nombre:</label>
+        <input type="text" name="nombre">
+    </div>
+    <div class="campo">
+        <label>Documento:</label>
+        <input type="text" name="documento">
+    </div>
+    <div class="campo">
+        <label>Tipo Documento:</label>
+        <select name="tipo_documento" id="tipo_documento" class="seleccion">
+            <option value="" disabled selected>Elija una opción</option>
+            {{#tipos}}
+                <option>{{enumTipo}}</option>
+            {{/tipos}}
+        </select>
+    </div>
+    <div class="campo">
+        <label>Email:</label>
+        <input type="text" name="email">
+    </div>
+    <div class="campo">
+        <label>Telefono:</label>
+        <input type="text" name="telefono">
+    </div>
+{{/partial}}
+
+{{> singin-tipo-cuenta.html.hbs}}

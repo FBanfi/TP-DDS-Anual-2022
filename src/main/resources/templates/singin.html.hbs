@@ -1,0 +1,26 @@
+{{#partial "titulo"}}
+    <title>CarbonOrg-Calculator | Singin</title>
+{{/partial}}
+
+{{#partial "contenido"}}
+    <section class="marcoCuerpo">
+        <section class="cuerpo">
+            <h1>Registrar nueva cuenta</h1>
+            <form action="/singin" method="post">
+                <div class="campo">
+                    <label>Tipo de cuenta:</label>
+                    <select name="tipo_cuenta" id="tipo_cuenta" class="seleccion">
+                        <option value="" disabled selected>Elija una opción</option>
+                        {{#tipos}}
+                            <option value="{{enumTipo}}">{{valor}}</option>
+                        {{/tipos}}
+                    </select>
+                </div>
+                <input type="hidden" name="tipo_cuenta">
+                <input type="submit" value="Crear cuenta">
+            </form>
+        </section>
+    </section>
+{{/partial}}
+
+{{> layout-login.html.hbs}}
